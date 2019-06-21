@@ -1,0 +1,7 @@
+{
+  "name": "ThraithaShakam",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

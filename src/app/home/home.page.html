@@ -1,0 +1,100 @@
+<ion-header>
+        <ion-toolbar>
+                <ion-buttons slot="start">
+                        <ion-menu-toggle>
+                                <ion-button>
+                                        <ion-icon style="color:white" slot="icon-only" name="menu"></ion-icon>
+                                </ion-button>
+                        </ion-menu-toggle>
+                </ion-buttons>
+                <ion-row style="height:70px">
+                        <ion-col size="2">
+                                <img src="assets/img/devudimudra.png" height="70">
+                        </ion-col>
+                        <ion-col size="8" text-center style="color:white;font-size:30px">
+                                <span><b>త్రైత శకము</b></span>
+                        </ion-col>
+                        <ion-col size="2">
+                                <img src="assets/img/swami.jpeg" height="68">
+
+                        </ion-col>
+                </ion-row>
+        </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+        <ion-row>
+                <ion-col text-center>
+                        <ion-title><b>Order Books</b></ion-title>
+                </ion-col>
+        </ion-row>
+        <ion-row>
+                <ion-col>
+                        <ion-card class="custom-card">
+                                <ion-row>
+                                        <ion-col>
+                                                <ion-item>
+                                                        <ion-label position="stacked">
+                                                                Committee Name
+                                                        </ion-label>
+                                                        <ion-input [(ngModel)]="committeeName" maxlength="120">
+                                                        </ion-input>
+                                                        <br>
+                                                        <span style="color:maroon">{{this.committeeNameErr}}</span>
+                                                </ion-item>
+                                        </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                        <ion-col>
+                                                <ion-item>
+                                                        <ion-label position="stacked">
+                                                                President Name
+                                                        </ion-label>
+                                                        <ion-input [(ngModel)]="presidentName" maxlength="120">
+                                                        </ion-input>
+                                                        <br>
+                                                        <span style="color:maroon">{{this.presidentNameErr}}</span>
+                                                </ion-item>
+                                        </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                        <ion-col>
+                                                <ion-item>
+                                                        <ion-label position="stacked">
+                                                                Phone Number
+                                                        </ion-label>
+                                                        <ion-input [(ngModel)]="phoneNumber" maxlength="10"></ion-input>
+                                                        <br>
+                                                        <span style="color:maroon">{{this.phoneNumberErr}}</span>
+                                                </ion-item>
+                                        </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                        <ion-col>
+                                                <ion-item>
+                                                        <ion-label position="stacked">
+                                                                Books Order Information
+                                                        </ion-label>
+                                                        <ion-textarea [(ngModel)]="comments" placeholder="Type Books order.." maxlength="1024"></ion-textarea>
+                                                        <br>
+                                                        <span style="color:maroon">{{this.commentsErr}}</span>
+                                                </ion-item>
+                                        </ion-col>
+                                </ion-row>
+                                 
+                                
+                        </ion-card>
+                </ion-col>
+        </ion-row>
+
+        <ion-row>
+                <ion-col text-center>
+                        <ion-button expand="block" style="color:whitesmoke" fill="outline" shape="round" (click)="submitOrder()">Submit</ion-button>
+                </ion-col>
+        </ion-row>
+
+
+
+
+</ion-content>
