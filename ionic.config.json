@@ -1,0 +1,7 @@
+{
+  "name": "OrderBooks",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
