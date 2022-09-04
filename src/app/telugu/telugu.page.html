@@ -1,15 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
-      <img src="assets/images/telugulogo.png" height="60">
     </ion-buttons>
     <ion-title class="ion-text-center"><b>Telugu Granthamulu</b></ion-title>
     <ion-buttons slot="end" (click)="checkOut()">
-      <ion-icon slot="start" name="cart" class="cart-class" style="font-size:50px"></ion-icon>
+      <ion-icon slot="start" name="cart" style="font-size:50px"></ion-icon>
       <ion-badge color="danger" class="badge-class">{{this.globalData.totalQty}}
       </ion-badge>
-  </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -26,9 +25,9 @@
         <ion-row *ngFor="let book of teluguBooks;let idx=index">
           <ion-col size="9.5">
             <ion-row>
-              <ion-col><b> 
-                {{book.name}}<br><br>
-                Rs.{{book.price}}</b>
+              <ion-col><b>
+                  {{book.name}}<br><br>
+                  Rs.{{book.price}}</b>
               </ion-col>
             </ion-row>
             <ion-row>
