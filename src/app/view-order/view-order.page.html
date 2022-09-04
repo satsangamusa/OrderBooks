@@ -1,0 +1,295 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <img src="assets/images/telugulogo.png" height="60">
+    </ion-buttons>
+    <ion-title class="ion-text-center"><b>Thraitha Siddhantha <br>Granthamulu</b></ion-title>
+    <ion-buttons slot="end">
+      <img src="assets/images/swami.jpeg" height="60">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <div id="orderDetails">
+      <ion-row>
+        <ion-col>Committee Name:</ion-col>
+        <ion-col>{{this.globalData.committeeName}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>President Name:</ion-col>
+        <ion-col>{{this.globalData.presidentName}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Email Id 1:</ion-col>
+        <ion-col>{{this.globalData.emailId1}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Email Id 2:</ion-col>
+        <ion-col>{{this.globalData.emailId2}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Phone Number 1:</ion-col>
+        <ion-col>{{this.globalData.phoneNumber1}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>Phone Number 2</ion-col>
+        <ion-col>{{this.globalData.phoneNumber2}}</ion-col>
+        <br>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center"><strong>
+            Order Details
+          </strong></ion-col>
+      </ion-row>
+     
+      <ion-row *ngIf="totalTeluguQty>0">
+        <ion-col class="ion-text-center">
+          <br>  
+          Telugu Books
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of teluguBooks;" class="custom-row-border" style="font-size:12px">
+        <ion-col class="custom-row-border" size="6">
+          {{item.ename}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.qty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price*item.qty}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-row-border" *ngIf="totalTeluguQty>0" style="font-size:12px">
+        <ion-col size="6">
+          Total
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalTeluguQty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalTeluguAmt}}
+        </ion-col>
+      </ion-row>
+
+
+      
+      <ion-row *ngIf="totalKannadaQty>0">
+        <ion-col class="ion-text-center">
+          <br>
+          Kannada Books
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of kannadaBooks;" class="custom-row-border" style="font-size:12px">
+        <ion-col class="custom-row-border" size="6">
+          {{item.ename}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.qty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price*item.qty}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-row-border" *ngIf="totalKannadaQty>0" style="font-size:12px">
+        <ion-col size="6">
+          Total
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalKannadaQty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalKannadaAmt}}
+        </ion-col>
+      </ion-row>
+
+
+      
+      <ion-row *ngIf="totalEnglishQty>0">
+        <ion-col class="ion-text-center">
+          <br>
+          English Books
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of englishBooks;" class="custom-row-border" style="font-size:12px">
+        <ion-col class="custom-row-border" size="6">
+          {{item.ename}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.qty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price*item.qty}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-row-border" *ngIf="totalEnglishQty>0" style="font-size:12px">
+        <ion-col size="6">
+          Total
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalEnglishQty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalEnglishAmt}}
+        </ion-col>
+      </ion-row>
+
+      
+      <ion-row *ngIf="totalHindiQty>0">
+        <ion-col class="ion-text-center">
+          <br>
+          Hindi Books
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of hindiBooks;" class="custom-row-border" style="font-size:12px">
+        <ion-col class="custom-row-border" size="6">
+          {{item.ename}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.qty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price*item.qty}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-row-border" *ngIf="totalHindiQty>0" style="font-size:12px">
+        <ion-col size="6">
+          Total
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalHindiQty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalHindiAmt}}
+        </ion-col>
+      </ion-row>
+
+     
+      <ion-row *ngIf="totalUrduQty">
+        <ion-col class="ion-text-center">
+          <br>
+          Urdu Books
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of urduBooks;" class="custom-row-border" style="font-size:12px">
+        <ion-col class="custom-row-border" size="6">
+          {{item.ename}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.qty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price*item.qty}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-row-border" *ngIf="totalUrduQty>0" style="font-size:12px">
+        <ion-col size="6">
+          Total
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalUrduQty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalUrduAmt}}
+        </ion-col>
+      </ion-row>
+
+      
+      <ion-row *ngIf="totalOdiyaQty>0">
+        <ion-col class="ion-text-center">
+          <br>
+          Odiya Books
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of odiyaBooks;" class="custom-row-border" style="font-size:12px">
+        <ion-col class="custom-row-border" size="6">
+          {{item.ename}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.qty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{item.price*item.qty}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="custom-row-border" *ngIf="totalOdiyaQty>0" style="font-size:12px">
+        <ion-col size="6">
+          Total
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalOdiyaQty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{totalOdiyaAmt}}
+        </ion-col>
+      </ion-row>
+      <br>
+
+      <ion-row class="custom-row-border" *ngIf="allTotalQty>0" style="font-size:12px">
+        <ion-col size="6">
+          All Total Books
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{allTotalQty}}
+        </ion-col>
+        <ion-col class="custom-row-border">
+          {{allTotalAmt}}
+        </ion-col>
+      </ion-row>
+
+
+    </div>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button shape="round" fill="outline" expand="full" color="primary" (click)="generatePdf()">Generate Pdf</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

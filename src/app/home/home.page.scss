@@ -1,0 +1,45 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    text-align: center;
+    flex-direction: row;
+    max-height: 300vh;
+    line-height: 30px;;
+  }
+  .cards .img-class {
+    margin-top: 10px;
+    margin:auto;
+    color:white;
+    font-size: 25px;
+    border: 1px solid rgb(10, 12, 41);
+    box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.3); 
+    max-width: 15vw;
+  }
+
+  .cards .img-class:hover {
+    margin-top: 10px;
+    margin:auto;
+    color:black;
+    font-size: 25px;
+    max-width: 17vw;
+  }
+   .custom-label{
+    color:red;
+   }
+   ion-item{
+    --border-width: 1px 1px 1px 1px;
+    --border-radius:15px;
+    --line-height:10px;
+   }
+   .formCls{
+    margin-top: 20px;
+    font-size:15px;
+}
+ 
+.show-error{
+    padding-top: 0.2rem;
+    color: red;
+    font-size: 12px;
+}

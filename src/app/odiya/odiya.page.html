@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <img src="assets/images/telugulogo.png" height="60">
+    </ion-buttons>
+    <ion-title class="ion-text-center"><b>Odiya Granthamulu</b></ion-title>
+    <ion-buttons slot="end" (click)="checkOut()">
+      <ion-icon slot="start" name="cart" class="cart-class" style="font-size:50px"></ion-icon>
+      <ion-badge color="danger" class="badge-class">{{this.globalData.totalQty}}
+      </ion-badge>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <strong>Odiya Books</strong>
+      </ion-col>
+    </ion-row>
+    <ion-card>
+      <ion-card-content>
+        <ion-row *ngFor="let book of odiyaBooks;let idx=index">
+          <ion-col size="9.5">
+            <ion-row>
+              <ion-col><b> 
+                {{book.name}}<br><br>
+                Rs.{{book.price}}</b>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <button class="round" fill="outline" (click)="redcueQuantity(book)">-</button>
+              </ion-col>
+              <ion-col>
+                <button class="round" *ngIf="book.qty>=0" fill="outline">{{book.qty}}</button>
+              </ion-col>
+              <ion-col>
+                <button class="round" fill="outline" (click)="addQuantity(book)">+</button>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="book.qty>0">
+              <ion-col>
+                Amount:{{book.qty*book.price}}
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <img src="assets/images/kannada/books/{{idx+1}}.png" />
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>

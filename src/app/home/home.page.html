@@ -1,0 +1,210 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <img src="assets/images/telugulogo.png" height="60">
+    </ion-buttons>
+    <ion-title class="ion-text-center"><b>Thraitha Siddhantha <br>Granthamulu</b></ion-title>
+    <ion-buttons slot="end">
+      <img src="assets/images/swami.jpeg" height="60">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" id="container">
+  <ion-grid>
+    <br>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <strong>Order Books</strong>
+        <ion-card>
+          <ion-card-content>
+            <ion-row class="cards">
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: royalblue;">
+                <strong>TE</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: cyan;">
+                <strong>KA</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: green;">
+                <strong>HI</strong>
+              </ion-col>
+            </ion-row>
+            <br>
+            <ion-row class="cards">
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: red;">
+                <strong>EN</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: violet;">
+                <strong>OD</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: orange;">
+                <strong>UD</strong>
+              </ion-col>
+            </ion-row>
+            <br>
+            <ion-row class="cards">
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: indigo;">
+                <strong>TA</strong>
+              </ion-col>
+
+            </ion-row>
+            <br>
+            <ion-row *ngIf="selectedLanguage==='KA'">
+              <ion-col>
+                <strong>You have selected Kannada</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='TE'">
+              <ion-col>
+                <strong>You have selected Telugu</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='HI'">
+              <ion-col>
+                <strong>You have selected Hindi</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='OD'">
+              <ion-col>
+                <strong>You have selected Odiya</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='UD'">
+              <ion-col>
+                <strong>You have selected Urdu</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='EN'">
+              <ion-col>
+                <strong>You have selected English</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='TA'">
+              <ion-col>
+                <strong>You have selected Tamil</strong>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-card>
+      <form [formGroup]="formGrp" novalidate class="formCls">
+          <ion-list>
+            <ion-item>
+              <ion-label position="stacked">Committee Name</ion-label>
+              <ion-input type="text" formControlName="committeeName" [(ngModel)]="committeeName"
+                placeholder="Please enter Committee Name"></ion-input>
+            </ion-item>
+            <div class="show-error">
+              <div *ngIf="formGrp.get('committeeName').hasError('required') && formGrp.get('committeeName').dirty">Please
+                enter Committee Name
+              </div>
+              <div *ngIf="formGrp.get('committeeName').hasError('minLength') && formGrp.get('committeeName').dirty">Please
+                enter minimum 3 letters
+              </div>
+              <div *ngIf="formGrp.get('committeeName').hasError('maxLength') && formGrp.get('committeeName').dirty">
+                Please enter less than 50 letters</div>
+            </div>
+            <ion-item>
+              <ion-label position="stacked">President Name</ion-label>
+              <ion-input type="text" formControlName="presidentName" [(ngModel)]="presidentName"
+                placeholder="Please enter President Name"></ion-input>
+            </ion-item>
+            <div class="show-error">
+              <div *ngIf="formGrp.get('presidentName').hasError('required') && formGrp.get('presidentName').dirty">Please
+                enter Committee Name
+              </div>
+              <div *ngIf="formGrp.get('presidentName').hasError('minLength') && formGrp.get('presidentName').dirty">Please
+                enter minimum 3 letters
+              </div>
+              <div *ngIf="formGrp.get('presidentName').hasError('maxLength') && formGrp.get('presidentName').dirty">
+                Please enter less than 50 letters</div>
+            </div>
+            <ion-item>
+              <ion-label position="stacked">Primary Email Id</ion-label>
+              <ion-input type="email" formControlName="emailId1" [(ngModel)]="emailId1"
+                placeholder="Please enter email id"></ion-input>
+            </ion-item>
+            <div class="show-error">
+              <div *ngIf="formGrp.get('emailId1').hasError('email') && formGrp.get('emailId1').dirty">Please enter email
+                id
+              </div>
+              <div *ngIf="formGrp.get('emailId1').hasError('required') && formGrp.get('emailId1').dirty">
+                Please enter valid email id</div>
+            </div>
+            <ion-item>
+              <ion-label position="stacked">Secondary Email Id</ion-label>
+              <ion-input type="email" formControlName="emailId2" [(ngModel)]="emailId2"
+                placeholder="Please enter email id"></ion-input>
+            </ion-item>
+            <div class="show-error">
+              <div *ngIf="formGrp.get('emailId2').hasError('email') && formGrp.get('emailId2').dirty">Please enter email
+                id
+              </div>
+              <div *ngIf="formGrp.get('emailId2').hasError('required') && formGrp.get('emailId2').dirty">
+                Please enter valid email id</div>
+            </div>
+            <ion-item>
+              <ion-label position="stacked">Primary Phone Number</ion-label>
+              <ion-input type="text" formControlName="phoneNumber1" [(ngModel)]="phoneNumber1"
+                placeholder="Please enter Phone"></ion-input>
+            </ion-item>
+            <div class="show-error">
+              <div *ngIf="formGrp.get('phoneNumber1').hasError('required') && formGrp.get('phoneNumber1').dirty">
+                Please enter valid Phone</div>
+              <div *ngIf="formGrp.get('phoneNumber1').hasError('minLength') && formGrp.get('phoneNumber1').dirty">Please
+                enter Phone
+              </div>
+              <div *ngIf="formGrp.get('phoneNumber1').hasError('maxLength') && formGrp.get('phoneNumber1').dirty">Please
+                enter Phone
+              </div>
+            </div>
+            <ion-item>
+              <ion-label position="stacked">Secondary Phone Number</ion-label>
+              <ion-input type="text" formControlName="phoneNumber2" [(ngModel)]="phoneNumber2"
+                placeholder="Please enter Phone"></ion-input>
+            </ion-item>
+            <div class="show-error">
+              <div *ngIf="formGrp.get('phoneNumber2').hasError('required') && formGrp.get('phoneNumber2').dirty">
+                Please enter valid Phone</div>
+              <div *ngIf="formGrp.get('phoneNumber2').hasError('minLength') && formGrp.get('phoneNumber2').dirty">Please
+                enter Phone
+              </div>
+              <div *ngIf="formGrp.get('phoneNumber2').hasError('maxLength') && formGrp.get('phoneNumber2').dirty">Please
+                enter Phone
+              </div>
+            </div>
+  
+          </ion-list>
+       
+  
+        <ion-button fill="outline" shape="round" expand="block" color="primary" [disabled]="!formGrp.valid"
+          (click)="doSubmit()">Submit
+        </ion-button>
+  
+      </form>
+  
+    </ion-card>
+    <ion-row *ngIf="errorMessage">
+      <ion-col class="ion-text-center">
+        <span class="custom-label">{{errorMessage}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-card>
+      <ion-card-content>
+       
+
+        <ion-row>
+          <ion-col>
+            <ion-button fill="outline" expand="block" color="primary" (click)="submit()">Submit</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+
+
+</ion-content>
