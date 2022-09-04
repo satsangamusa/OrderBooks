@@ -96,86 +96,92 @@
             <ion-item>
               <ion-label position="stacked">Committee Name</ion-label>
               <ion-input type="text" formControlName="committeeName" [(ngModel)]="committeeName"
-                placeholder="Please enter Committee Name"></ion-input>
+                placeholder="Enter Committee Name"></ion-input>
             </ion-item>
             <div class="show-error">
-              <div *ngIf="formGrp.get('committeeName').hasError('required') && formGrp.get('committeeName').dirty">Please
-                enter Committee Name
+              <div *ngIf="formGrp.get('committeeName').hasError('required') && formGrp.get('committeeName').dirty">
+               Committee Name Required
               </div>
-              <div *ngIf="formGrp.get('committeeName').hasError('minLength') && formGrp.get('committeeName').dirty">Please
-                enter minimum 3 letters
+              <div *ngIf="formGrp.get('committeeName').hasError('minLength') && formGrp.get('committeeName').dirty">
+                Committee Name minimum 3 letters
               </div>
               <div *ngIf="formGrp.get('committeeName').hasError('maxLength') && formGrp.get('committeeName').dirty">
-                Please enter less than 50 letters</div>
+                Committee Name less than 50 letters</div>
+                <br>
             </div>
             <ion-item>
               <ion-label position="stacked">President Name</ion-label>
               <ion-input type="text" formControlName="presidentName" [(ngModel)]="presidentName"
-                placeholder="Please enter President Name"></ion-input>
+                placeholder="Enter President Name"></ion-input>
             </ion-item>
             <div class="show-error">
-              <div *ngIf="formGrp.get('presidentName').hasError('required') && formGrp.get('presidentName').dirty">Please
-                enter Committee Name
+              <div *ngIf="formGrp.get('presidentName').hasError('required') && formGrp.get('presidentName').dirty">
+                President Name Required
               </div>
-              <div *ngIf="formGrp.get('presidentName').hasError('minLength') && formGrp.get('presidentName').dirty">Please
-                enter minimum 3 letters
+              <div *ngIf="formGrp.get('presidentName').hasError('minLength') && formGrp.get('presidentName').dirty">
+               President Name minimum 3 letters
               </div>
               <div *ngIf="formGrp.get('presidentName').hasError('maxLength') && formGrp.get('presidentName').dirty">
-                Please enter less than 50 letters</div>
+                President Name less than 50 letters</div>
+                <br>
             </div>
             <ion-item>
               <ion-label position="stacked">Primary Email Id</ion-label>
               <ion-input type="email" formControlName="emailId1" [(ngModel)]="emailId1"
-                placeholder="Please enter email id"></ion-input>
+                placeholder="Enter email id"></ion-input>
             </ion-item>
             <div class="show-error">
-              <div *ngIf="formGrp.get('emailId1').hasError('email') && formGrp.get('emailId1').dirty">Please enter email
+              <div *ngIf="formGrp.get('emailId1').hasError('email') && formGrp.get('emailId1').dirty">Enter email
                 id
               </div>
               <div *ngIf="formGrp.get('emailId1').hasError('required') && formGrp.get('emailId1').dirty">
-                Please enter valid email id</div>
+                 email id Required</div>
+                 <br>
             </div>
             <ion-item>
               <ion-label position="stacked">Secondary Email Id</ion-label>
               <ion-input type="email" formControlName="emailId2" [(ngModel)]="emailId2"
-                placeholder="Please enter email id"></ion-input>
+                placeholder="Enter email id"></ion-input>
             </ion-item>
             <div class="show-error">
-              <div *ngIf="formGrp.get('emailId2').hasError('email') && formGrp.get('emailId2').dirty">Please enter email
+              <div *ngIf="formGrp.get('emailId2').hasError('email') && formGrp.get('emailId2').dirty">Enter email
                 id
               </div>
               <div *ngIf="formGrp.get('emailId2').hasError('required') && formGrp.get('emailId2').dirty">
-                Please enter valid email id</div>
+                email id required</div>
+                <br>
             </div>
             <ion-item>
               <ion-label position="stacked">Primary Phone Number</ion-label>
               <ion-input type="text" formControlName="phoneNumber1" [(ngModel)]="phoneNumber1"
-                placeholder="Please enter Phone"></ion-input>
+                placeholder="Enter Phone Number"></ion-input>
             </ion-item>
             <div class="show-error">
               <div *ngIf="formGrp.get('phoneNumber1').hasError('required') && formGrp.get('phoneNumber1').dirty">
-                Please enter valid Phone</div>
-              <div *ngIf="formGrp.get('phoneNumber1').hasError('minLength') && formGrp.get('phoneNumber1').dirty">Please
-                enter Phone
+               Phone Number required</div>
+              <div *ngIf="formGrp.get('phoneNumber1').hasError('minLength') && formGrp.get('phoneNumber1').dirty">
+                Phone Number minimum 10 digits
               </div>
-              <div *ngIf="formGrp.get('phoneNumber1').hasError('maxLength') && formGrp.get('phoneNumber1').dirty">Please
-                enter Phone
+              <div *ngIf="formGrp.get('phoneNumber1').hasError('maxLength') && formGrp.get('phoneNumber1').dirty">
+                Phone Number maximum 10 digits
               </div>
+              <br>
             </div>
             <ion-item>
               <ion-label position="stacked">Secondary Phone Number</ion-label>
               <ion-input type="text" formControlName="phoneNumber2" [(ngModel)]="phoneNumber2"
-                placeholder="Please enter Phone"></ion-input>
+                placeholder="Enter Phone Number"></ion-input>
             </ion-item>
             <div class="show-error">
               <div *ngIf="formGrp.get('phoneNumber2').hasError('required') && formGrp.get('phoneNumber2').dirty">
-                Please enter valid Phone</div>
-              <div *ngIf="formGrp.get('phoneNumber2').hasError('minLength') && formGrp.get('phoneNumber2').dirty">Please
-                enter Phone
+                Phone Number required</div>
+              <div *ngIf="formGrp.get('phoneNumber2').hasError('minLength') && formGrp.get('phoneNumber2').dirty">
+                Phone Number minimum 10 digits
               </div>
-              <div *ngIf="formGrp.get('phoneNumber2').hasError('maxLength') && formGrp.get('phoneNumber2').dirty">Please
-                enter Phone
+              <div *ngIf="formGrp.get('phoneNumber2').hasError('maxLength') && formGrp.get('phoneNumber2').dirty">
+                Phone Number maximum 10 digits
               </div>
+              <br>
             </div>
   
           </ion-list>
