@@ -113,153 +113,20 @@ export class ViewOrderPage implements OnInit {
     this.getScreenHeight = window.innerHeight;
   }
 pdfBlob:any;
-  generatePdfMake(action = 'open') {
+  createPdf(action = 'open') {
     console.log(pdfMake);
     const documentDefinition = this.getDocumentDefinition();
-   // pdfMake.createPdf(documentDefinition);
     let fileName='OrderBooks_'+new Date().getTime()+'.pdf';
-     
    let gen= pdfMake.createPdf(documentDefinition);
-    
     gen.getBase64((data) => {
        this.base64pdf= data;
-       this.openPDFFile(fileName)
-    });
-    
-    /*
-    pdfMake.createPdf(documentDefinition).getBase64(
-      (encodedString)=> {
-         base64 = encodedString;
-         this.base64pdf = btoa(base64);
-         //this.openPDFFile(fileName);
-
-          // Filesystem.writeFile({
-          //   path: fileName,
-          //   data: base64,
-          //   directory: Directory.Documents,
-          //   encoding: Encoding.UTF8,
-          // }).then(response=>{
-          //   console.log(' file wrote success ', response)
-          //   Filesystem.readFile({
-          //     path: fileName,
-          //     directory: Directory.Documents,
-          //     encoding: Encoding.UTF8,
-          //   }).then(da=>{
-          //     console.log('file read successfully ', JSON.stringify(da));
-          //     //Browser.open({ url: contents});
-             
-          //   });
-          // });
-      
-        
-        
-      } 
-  );*/
-   
-   
-     
-   //this.openPDFFile(fileName);
-    /*switch (action) {
-      case 'open':
-        pdfMake.createPdf(documentDefinition).open();
-        break;
-      case 'download':
-        pdfMake.createPdf(documentDefinition).download();
-        break;
-      default:
-        pdfMake.createPdf(documentDefinition).open();
-        break;
-    }*/
-  }
-
-
-
-  processPdf() {
-    let rbooks: any = []
-    const pdf = new jsPDF('p', 'pt', 'a4', true);
-
-    pdf.setFontSize(20);
-    pdf.text("Prabodha Seva Samithi", 190, 40);
-    pdf.text("Books Order", 230, 70);
-
-    pdf.setFontSize(15);
-    pdf.text("Committee Name::" + this.globalData.committeeName, 60, 100)
-    pdf.text("President Name::" + this.globalData.presidentName, 60, 130)
-    pdf.text("Primary Email Id::" + this.globalData.emailId1, 60, 160)
-    pdf.text("Secondary Email Id::" + this.globalData.emailId2, 60, 190)
-    pdf.text("Primary Phone Number::" + this.globalData.phoneNumber1, 60, 220)
-    pdf.text("Secondary Phone Number::" + this.globalData.phoneNumber2, 60, 250)
-    pdf.setFontSize(10);
-    let j = 16;
-    for (var i = 0; i < rbooks.length; i++) {
-      j++;
-      pdf.text(rbooks[i].name, 5, 10 * (j + 1))
-      pdf.text("" + rbooks[i].count, 160, 10 * (j + 1))
-      if (i == 8 || (i + 1) % 25 == 0) {
-        j = 1;
-
-        pdf.addPage();
-        pdf.setFontSize(14)
-        pdf.text("గ్రంథము పేరు", 20, 10)
-        pdf.text("కొలత", 160, 10);
-      }
-    }
-    //pdf.setLanguage("te");
-    pdf.save('hello.pdf');
-
-  }
-
-  generatePdf() {
-    const imgData = document.getElementById('orderDetails') as HTMLCanvasElement;
-    html2canvas(imgData).then(canvas => {
-      var pdf = new jsPDF('p', 'pt', 'a4', true);
-      pdf.setFont("arial", "bold");
-      pdf.setFontSize(10);
-
-      let pages = Math.ceil(canvas.height / (this.getScreenHeight * 2));
-      for (let i = 0; i <= pages; i += 1) {
-        if (i > 0) {
-          pdf.addPage();
-        }
-        let srcImg = canvas;
-        let sX = 0;
-        let sY = 1430 * i;
-        let sWidth = canvas.width + 35;
-        let sHeight = 1455;
-        let dX = 0;
-        let dY = 0;
-        let dWidth = this.getScreenWidth * 2 - 200;
-        let dHeight = 1400;
-        let onePageCanvas = document.createElement("canvas") as HTMLCanvasElement;
-        onePageCanvas.setAttribute('width', '' + sWidth);
-        onePageCanvas.setAttribute('height', '' + sHeight);
-
-        let ctx = onePageCanvas.getContext('2d');
-
-        ctx.drawImage(srcImg, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);
-        let canvasDataURL = onePageCanvas.toDataURL("image/png");
-        let width = onePageCanvas.width;
-        let height = onePageCanvas.height;
-
-        pdf.setPage(i + 1);
-        //pdf.addImage(canvasDataURL, 'PNG',35, 35, (width * 0.1), (height * 0.2));
-        pdf.addImage(canvasDataURL, 'PNG', 45, 35, width * 0.3, height * 0.2, '', 'FAST');
-      }
-      let fileName = "OrderBooks_" + new Date().getTime();
-      pdf.save(fileName);
-      //this.base64pdf = 'data:application/pdf;base64,' + btoa(pdf.output());
-      this.base64pdf = btoa(pdf.output());
-      this.openPDFFile(fileName);
+       this.openPdf(fileName)
     });
   }
 
 
-  openPDFFile(fileName) {
-
-    
+  openPdf(fileName) {
     const writeDirectory = this.platform.is('ios') ? this.file.dataDirectory : this.file.externalDataDirectory;
-
-     
     this.file.createFile(writeDirectory, fileName, true).then((response) => {
       console.log('file created', response);
       const byteCharacters = atob(this.base64pdf);
@@ -285,23 +152,6 @@ pdfBlob:any;
       console.log('Error creating file', err);
     });
   }
-
-newOpenFile(fileName, blob){
-  const writeDirectory = this.platform.is('ios') ? this.file.dataDirectory : this.file.externalDataDirectory;
-
-  this.file.writeExistingFile(writeDirectory, fileName, blob).then((response) => {
-    console.log('successfully wrote to file', response);
-    this.fileOpener.open(writeDirectory + fileName, 'application/pdf').then((response) => {
-      console.log('opened PDF file successfully', response);
-    }).catch((err) => {
-      console.log('error in opening pdf file', err);
-    });
-  }).catch((err) => {
-    console.log('error writing to file', err);
-  });
-}
-
-
   getDocumentDefinition() {
     let buildPdf: any = {};
     let content: any = [];
@@ -332,51 +182,10 @@ newOpenFile(fileName, blob){
     if(this.allTotalQty>0){
       content.push(this.getAllTotalRowData());
     }
-   
-
     buildPdf['content']=content;
     buildPdf['styles']=this.getPdfStyles();
-   
     return buildPdf;
-   /* return {
-      content: [
-        this.getHeader1(),
-        this.getHeader2(),
-        {
-          columns: this.getUserForm(),
-        },
-        {
-          text: 'Telugu Books',
-          style: 'header',
-          alignment: 'center',
-          fontSize: 18,
-        },
-        {
-          layout: 'lightHorizontalLines', // optional
-          table: {
-            // headers are automatically repeated if the table spans over multiple pages
-            // you can declare how many rows should be treated as headers
-            headerRows: 1,
-            widths: ['*', 'auto', 100, '*'],
-
-            body: [
-              [
-                { text: 'Name', bold: true },
-                { text: 'Price', bold: true },
-                { text: 'Quantity', bold: true },
-                { text: 'Amount', bold: true },
-              ],
-              ['Thraitha Sidddhantha Bhagavadgeetha', '500', '2', '1000'],
-            ],
-          },
-        },
-      ],
-
-      styles: this.getPdfStyles(),
-    };*/
   }
-
-
   getHeader1() {
     return {
       text: 'Prabodha Seva Samithi',

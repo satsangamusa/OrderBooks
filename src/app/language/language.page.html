@@ -1,0 +1,107 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <img src="assets/images/telugulogo.png" height="60">
+    </ion-buttons>
+    <ion-title class="ion-text-center"><b>Thraitha Siddhantha <br>Granthamulu</b></ion-title>
+    <ion-buttons slot="end">
+      <img src="assets/images/swami.jpeg" height="60">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" id="container">
+  <ion-grid>
+    <br><br>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <strong>Select Language</strong>
+        <ion-card>
+          <ion-card-content>
+            <ion-row class="cards">
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: royalblue;">
+                <strong>TE</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: cyan;">
+                <strong>KA</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: green;">
+                <strong>HI</strong>
+              </ion-col>
+            </ion-row>
+            <br>
+            <ion-row class="cards">
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: red;">
+                <strong>EN</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: violet;">
+                <strong>OD</strong>
+              </ion-col>
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: orange;">
+                <strong>UD</strong>
+              </ion-col>
+            </ion-row>
+            <br>
+            <ion-row class="cards">
+              <ion-col class="img-class" (click)="selectLanguage($event)" style="background-color: indigo;">
+                <strong>TA</strong>
+              </ion-col>
+
+            </ion-row>
+            <br>
+            <ion-row *ngIf="selectedLanguage==='KA'">
+              <ion-col>
+                <strong>You have selected Kannada</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='TE'">
+              <ion-col>
+                <strong>You have selected Telugu</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='HI'">
+              <ion-col>
+                <strong>You have selected Hindi</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='OD'">
+              <ion-col>
+                <strong>You have selected Odiya</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='UD'">
+              <ion-col>
+                <strong>You have selected Urdu</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='EN'">
+              <ion-col>
+                <strong>You have selected English</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="selectedLanguage==='TA'">
+              <ion-col>
+                <strong>You have selected Tamil</strong>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="errorMessage">
+      <ion-col>
+        <span style="color:maroon"><b>
+            {{errorMessage}}
+          </b></span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button fill="outline" shape="round" expand="block" color="primary" [disabled]="!this.selectedLanguage"
+          (click)="doSubmit()">Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

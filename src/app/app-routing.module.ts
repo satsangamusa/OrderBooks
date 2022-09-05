@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'view-order',
     loadChildren: () => import('./view-order/view-order.module').then( m => m.ViewOrderPageModule)
+  },
+  {
+    path: 'language',
+    loadChildren: () => import('./language/language.module').then( m => m.LanguagePageModule)
   }
 ];
 
