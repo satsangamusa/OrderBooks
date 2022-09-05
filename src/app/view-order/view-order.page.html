@@ -284,11 +284,23 @@
         </ion-col>
       </ion-row>
 
-
+<ion-row *ngIf="base64pdf">
+  <ion-col class="ion-text-center">
+    <ngx-extended-pdf-viewer
+    [base64Src]="base64pdf"
+    backgroundColor="#ffffff"
+    [useBrowserLocale]="true"
+    [handTool]="false"
+    [showHandToolButton]="true"
+    [sidebarVisible]="true"
+  >
+  </ngx-extended-pdf-viewer>
+  </ion-col>
+</ion-row>
     </div>
     <ion-row>
       <ion-col class="ion-text-center">
-        <ion-button shape="round" fill="outline" expand="full" color="primary" (click)="generatePdf()">Generate Pdf</ion-button>
+        <ion-button shape="round" fill="outline" expand="full" color="primary" (click)="generatePdfMake()">Generate Pdf</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

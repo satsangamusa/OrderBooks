@@ -22,14 +22,7 @@ export class HomePage implements OnInit {
   constructor(public formBuilder: FormBuilder,public globalData: GlobalDataService, public router: Router) {
    
    }
-   doSubmit() {
-    this.globalData.committeeName = this.committeeName;
-    this.globalData.presidentName = this.presidentName;
-    this.globalData.phoneNumber1 = this.phoneNumber1;
-    this.globalData.phoneNumber2 = this.phoneNumber2;
-    this.globalData.emailId2=this.emailId2;
-    this.globalData.emailId1=this.emailId1;
-  }
+   
   ngOnInit() {
     this.formGrp = this.formBuilder.group({
       emailId1: ['', [Validators.required, Validators.email]],
@@ -47,7 +40,7 @@ export class HomePage implements OnInit {
     this.selectedLanguage = event?.target?.innerText;
 
   }
-  submit() {
+  doSubmit() {
     this.errorMessage = null;
     if (!this.selectedLanguage) {
       this.errorMessage = 'Please select the Language';

@@ -657,7 +657,7 @@ export class GlobalDataService {
     },
     {
       name:'4) ఇందుత్వమును కాపాడుదాం',
-      ename:'Indhuthvamunu Kaapaadudhaam',
+      ename:'4) Indhuthvamunu Kaapaadudhaam',
       price:50
     },
     {

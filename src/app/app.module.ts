@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 import { File, IWriteOptions } from '@awesome-cordova-plugins/file/ngx';
 import { EmailComposer } from '@awesome-cordova-plugins/email-composer';
+import { DocumentViewer } from '@awesome-cordova-plugins/document-viewer/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { EmailComposer } from '@awesome-cordova-plugins/email-composer';
   providers: [
    File,
    FileOpener,
+   DocumentViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
 

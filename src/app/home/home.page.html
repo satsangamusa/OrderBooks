@@ -89,7 +89,13 @@
         </ion-card>
       </ion-col>
     </ion-row>
-
+    <ion-row *ngIf="errorMessage">
+      <ion-col>
+        <span style="color:maroon"><b>
+          {{errorMessage}}
+        </b></span>
+      </ion-col>
+    </ion-row>
     <ion-card>
       <form [formGroup]="formGrp" novalidate class="formCls">
           <ion-list>
@@ -185,32 +191,10 @@
             </div>
   
           </ion-list>
-       
-  
         <ion-button fill="outline" shape="round" expand="block" color="primary" [disabled]="!formGrp.valid"
           (click)="doSubmit()">Submit
         </ion-button>
-  
       </form>
-  
-    </ion-card>
-    <ion-row *ngIf="errorMessage">
-      <ion-col class="ion-text-center">
-        <span class="custom-label">{{errorMessage}}</span>
-      </ion-col>
-    </ion-row>
-    <ion-card>
-      <ion-card-content>
-       
-
-        <ion-row>
-          <ion-col>
-            <ion-button fill="outline" expand="block" color="primary" (click)="submit()">Submit</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
     </ion-card>
   </ion-grid>
-
-
 </ion-content>
