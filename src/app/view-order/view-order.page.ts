@@ -152,7 +152,7 @@ pdfBlob:any;
       console.log('Error creating file', err);
     });
   }
-  getDocumentDefinition() {
+  getDocumentDefinition() {   
     let buildPdf: any = {};
     let content: any = [];
     content.push(this.getHeader1());
